@@ -38,11 +38,12 @@ class LanguageModelDataset(Dataset):
 
 def load_text_dataset(
     dataset_name,
+    config_name=None,
     text_column="text",
     split="train",
     num_samples=None,
 ):
-    dataset = load_dataset(dataset_name, split=split)
+    dataset = load_dataset(dataset_name, config_name, split=split)
 
     if num_samples is not None:
         dataset = dataset.select(
